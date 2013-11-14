@@ -6,24 +6,24 @@ import java.util.Iterator;
  *
  * @author Johnny
  */
-public class LinearniSeznam {
+public class LinearniSeznam<T> {
 
-    private Node first = null;
-    private Node actual = null;
+    private Node<T> first = null;
+    private Node<T> actual = null;
 
     public LinearniSeznam() {
     }
 
-    public Object getFirst() {
+    public T getFirst() {
         actual = first;
         return first.getData();
     }
 
-    public Object getActual() {
+    public T getActual() {
         return actual.getData();
     }
 
-    public Object getLast() {
+    public T getLast() {
         if (first == null) {
             return null;
         }
@@ -38,7 +38,7 @@ public class LinearniSeznam {
         return first.getData();
     }
 
-    public Object getAfterActual() {
+    public T getAfterActual() {
         if (first == null) {
             return null;
         }
@@ -49,8 +49,8 @@ public class LinearniSeznam {
         return actual.getData();
     }
 
-    public void addNodeFirst(Object data) {
-        Node node = new Node(data);
+    public void addNodeFirst(T data) {
+        Node<T> node = new Node<T>(data);
         if (first == null) {
             first = node;
             actual = node;
@@ -62,12 +62,12 @@ public class LinearniSeznam {
         actual = node;
     }
 
-    public void addNodeAfterActual(Object data) {
+    public void addNodeAfterActual(T data) {
         if (first == null) {
             addNodeFirst(data);
             return;
         }
-        Node node = new Node(data);
+        Node<T> node = new Node<T>(data);
         if (actual.getAfter() != null) {
             actual.getAfter().setBefore(node);
             node.setAfter(actual.getAfter());
@@ -77,19 +77,19 @@ public class LinearniSeznam {
         actual = node;
     }
 
-    public void addNodeLast(Object data) {
+    public void addNodeLast(T data) {
         if (first == null) {
             addNodeFirst(data);
             return;
         }
         getLast();
-        Node node = new Node(data);
+        Node<T> node = new Node<T>(data);
         node.setBefore(actual);
         actual.setAfter(node);
         actual = node;
     }
 
-    public Object deleteFirst() {
+    public T deleteFirst() {
         if (first == null) {
             return null;
         }
@@ -101,7 +101,7 @@ public class LinearniSeznam {
             first = null;
         }
         actual.setAfter(null);
-        Object data = actual.getData();
+        T data = actual.getData();
         actual = first;
         return data;
     }
@@ -119,7 +119,7 @@ public class LinearniSeznam {
 
     private class Iter implements Iterator {
 
-        private Node actual;
+        private Node<T> actual;
 
         public Iter() {
             actual = first;
@@ -134,8 +134,8 @@ public class LinearniSeznam {
         }
 
         @Override
-        public Object next() {
-            Object puvodniData = actual.getData();
+        public T next() {
+            T puvodniData = actual.getData();
             actual = actual.getAfter();
             return puvodniData;
         }
