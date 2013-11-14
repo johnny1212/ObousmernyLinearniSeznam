@@ -4,19 +4,19 @@ package LinearniSeznam;
  *
  * @author Johnny
  */
-public class Node {
+public class Node<T> {
 
     private Node before;
     private Node after;
-    private Object data;
+    private T data;
 
-    public Node(Object data) {
+    public Node(T data) {
         this.before = null;
         this.after = null;
         this.data = data;
     }
 
-    public Node(Node before, Node after, Object data) {
+    public Node(Node before, Node after, T data) {
         this.before = before;
         this.after = after;
         this.data = data;
@@ -38,11 +38,11 @@ public class Node {
         this.after = after;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }
