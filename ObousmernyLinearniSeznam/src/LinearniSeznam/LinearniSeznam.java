@@ -19,6 +19,10 @@ public class LinearniSeznam {
         return first.getData();
     }
 
+    public Object getActual() {
+        return actual.getData();
+    }
+
     public Object getLast() {
         if (first == null) {
             return null;
