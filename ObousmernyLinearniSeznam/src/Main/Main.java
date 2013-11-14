@@ -13,7 +13,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        System.out.println("LINEÁRNÍ SEZNAM22");
+        System.out.println("LINEÁRNÍ SEZNAM");
         LinearniSeznam sez = new LinearniSeznam();
         sez.addNodeFirst("C");
         sez.addNodeFirst("B");
