@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package obousmernylinearniseznam;
 
 import LinearniSeznam.LinearniSeznam;
@@ -17,8 +13,16 @@ public class ObousmernyLinearniSeznam {
      */
     public static void main(String[] args) {
         LinearniSeznam sez = new LinearniSeznam();
+        sez.addNodeFirst("C");
         sez.addNodeFirst("B");
         sez.addNodeFirst("A");
-        System.out.println(sez.getFirst());
+        sez.addNodeLast("D");
+
+        System.out.println("----");
+        System.out.println("první: " + sez.getFirst());
+        System.out.println("Aktuální: " + sez.getActual());
+        System.out.println("Následující: " + sez.getAfterActual());
+        System.out.println("poslední: " + sez.getLast());
+        System.out.println("----");
     }
 }
