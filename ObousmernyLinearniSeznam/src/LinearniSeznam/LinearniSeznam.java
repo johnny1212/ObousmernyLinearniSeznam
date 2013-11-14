@@ -87,7 +87,7 @@ public class LinearniSeznam {
         node.setBefore(actual);
         actual.setAfter(node);
         actual = node;
-    }s
+    }
 
     /*public void vypis() {
      actual = first;
