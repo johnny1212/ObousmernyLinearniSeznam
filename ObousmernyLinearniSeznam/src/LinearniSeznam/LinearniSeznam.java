@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package LinearniSeznam;
 
 import java.util.Iterator;
@@ -89,6 +85,23 @@ public class LinearniSeznam {
         actual = node;
     }
 
+    public Object deleteFirst() {
+        if (first == null) {
+            return null;
+        }
+        actual = first;
+        if (actual.getAfter() != null) {
+            first = actual.getAfter();
+            first.setBefore(null);
+        } else {
+            first = null;
+        }
+        actual.setAfter(null);
+        Object data = actual.getData();
+        actual = first;
+        return data;
+    }
+
     /*public void vypis() {
      actual = first;
      while (actual != null) {
@@ -113,9 +126,6 @@ public class LinearniSeznam {
             if (actual == null) {
                 return false;
             }
-            /* if (actual.getAfter() == null) {
-             return false;
-             }*/
             return true;
         }
 
